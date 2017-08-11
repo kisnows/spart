@@ -1,0 +1,20 @@
+// 对页面form组件边距进行调整
+@mixin form-margin($top,$bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+// form cells样式 增加top: 20px bottom: 60px
+.form-container-margin {
+  @include form-margin($form-margin-top, $form-margin-bottom)
+}
+
+// 增加field 中margin-top: 20px;
+.cell-field {
+  margin-top: $form-margin-top;
+}
+
+// form下边的cellTip 进行margin合并
+.form-cell {
+  @include form-margin($form-tip-top, $form-margin-bottom)
+}
