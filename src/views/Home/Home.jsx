@@ -7,13 +7,13 @@ import validate from '../../config/validate'
 import lang from '../../config/lang'
 
 class Home extends Component {
-  constructor(...props) {
+  constructor (...props) {
     super(...props)
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.init()
     setTimeout(() => {
       this.props.formChange({
@@ -27,14 +27,14 @@ class Home extends Component {
       })
     }, 2000)
   }
-  handleFieldChange(fieldData) {
+  handleFieldChange (fieldData) {
     console.log('fieldChange', fieldData)
   }
-  handleFormChange(formData) {
+  handleFormChange (formData) {
     this.props.formChange(formData)
   }
 
-  handleSubmit(isValidate, formData, pureData) {
+  handleSubmit (isValidate, formData, pureData) {
     if (!isValidate) {
       return this.props.showToast(formData.errorMsgList[0])
     } else {
@@ -42,7 +42,7 @@ class Home extends Component {
     }
   }
 
-  render() {
+  render () {
     const genderList = [{
       name: '男',
       value: 1,

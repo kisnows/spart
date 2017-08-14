@@ -1,7 +1,7 @@
 /**
  * Created by kisnows on 2016/12/8.
  */
-export function formatter(type, value) {
+export function formatter (type, value) {
   switch (type) {
     case 'idCard':
       return formatterToIdCard(value)
@@ -12,7 +12,7 @@ export function formatter(type, value) {
   }
 }
 
-export function removeBlack(value) {
+export function removeBlack (value) {
   if (value === undefined || value === null) {
     return value
   }
@@ -25,7 +25,7 @@ export function removeBlack(value) {
  * @param value
  * @returns {*}
  */
-export function formatterToBankCard(value) {
+export function formatterToBankCard (value) {
   value = toEntireString(value)
   value = value.split('')
   let formatterValue = ''
@@ -44,7 +44,7 @@ export function formatterToBankCard(value) {
  * @param value
  * @returns {string|*}
  */
-export function formatterToIdCard(value) {
+export function formatterToIdCard (value) {
   value = toEntireString(value)
   value = value.substr(0, 6) + ' ' + value.substr(6, 8) + ' ' + value.substr(14, 4) + value.substr(18)
   return value.trim()
@@ -55,7 +55,7 @@ export function formatterToIdCard(value) {
  * @param value
  * @returns {string|*}
  */
-export function formatterToPhone(value) {
+export function formatterToPhone (value) {
   value = toEntireString(value)
   value = value.substr(0, 3) + ' ' + value.substr(3, 4) + ' ' + value.substr(7, 4) + value.substr(11)
   return value.trim()
@@ -66,7 +66,7 @@ export function formatterToPhone(value) {
  * @param value
  * @returns {string} 处理完后的 string
  */
-function toEntireString(value) {
+function toEntireString (value) {
   if (typeof value === 'number') {
     value = value.toLocaleString('en-IN').replace(/,/g, '')
   } else if (typeof value === 'string') {

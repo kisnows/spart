@@ -10,8 +10,8 @@ React 全家桶项目脚手架。
     - [redux-thunk](https://github.com/gaearon/redux-thunk)
     - [redux-logger](https://github.com/fcomb/redux-logger#readme)
 * [React-redux](https://github.com/gaearon/react-redux)
-* [Redux-actions](https://github.com/acdlite/redux-actions)
 * [React-router-redux](https://github.com/reactjs/react-router-redux#readme)
+* [Redux-actions](https://github.com/acdlite/redux-actions)
 
 # How TO
 ## 依赖环境
@@ -48,19 +48,24 @@ npm run dist
 打包后的文件会放在 dist 文件夹下，每次打包都会删除上一次打包的内容。
 
 ### 联调
-连接后端开发的电脑进行联调，后端同学机子的 ip 地址在 env.js 里面配置。
+和后端同学进行联调，只需要在 env.js 里面配置 remoteApi 为后端同学开发环境的机器 ip 地址， 然后执行 `npm run api` 就可以了。
 ```
-npm run api
+module.exports = {
+  localPort: 80,
+  remoteApi: ''
+}
 ```
-
 ### 预览
 预览打包后的，将要实际跑在生产环境上的代码。
 ```
+// 先执行
+npm run dist
+// 后执行
 npm run online
 ```
 
 ## 一个 DEMO
-可以查看 DEMO 了解项目的运行机制，位于 `src/views/Demo` 下面，通过 `npm run dev` 启动项目，打开浏览器到 `localhost:3000` 查看，自由修改已查看效果。
+可以查看 DEMO 了解项目的运行机制，位于 `src/views/Home` 下面，通过 `npm run dev` 启动项目，打开浏览器到 `localhost:3000` 查看，自由修改已查看效果。
 
 # 项目目录结构
 ```
@@ -105,8 +110,7 @@ Store
       - show    是否显示
  - routing  路由
  // 具体页面
- - bill 账单相关
- - userStatus 用户状态
+ - home 首页
 ```
 
 # 开发规范
@@ -122,12 +126,12 @@ Store
   <BillDayAlert />
   <div>
     <div>
-      <p>剩余额度</p>
-      <p>￥{creditInfo}</p>
+      <p>Test 1</p>
+      <p>文案文案￥{creditInfo}</p>
     </div>
     <div>
-      <p>我的账单</p>
-      <p>下期应还￥{nextBillSummary}</p>
+      <p>Test 2</p>
+      <p>文案文案￥{nextBillSummary}</p>
     </div>
   </div>
 </section>
@@ -149,7 +153,7 @@ Store
 }
 ```
 ### 适配
-移动端采用的适配方案 rem 和 viewpoint 结合的方法，由于我们视觉稿都是按照 640px 开发的，所以默认情况下 1rem 等于 40px .
+移动端采用的适配方案 rem 和 viewpoint 结合的方法，由于我们视觉稿都是按照 640px 开发的，并且适配方案时除以 16 的，所以默认情况下 1rem 等于 40px .
 可以直接引入 _setting.scss ，并且直接调用 `pxToRem()` 这个 mixin 就可以了。
 ```scss
 @import '../../style/_setting.scss';
@@ -170,14 +174,6 @@ Store
     this.svg = ref
   }} />
 </div>
-```
-## Action 
-所有 Action 格式必须符合 [FSA 规范](https://github.com/acdlite/flux-standard-action), 建议选择使用 Redux-actions 来生成 ActionCreator
-```js
-import {createAction} from 'redux-actions'
-export const FormChange = 'home/formChange'
-
-export const formChange = createAction(FormChange)
 ```
 ## Ajax 请求
 通过 `src/util/initApi` 来生成，具体方法查看文件注释。
