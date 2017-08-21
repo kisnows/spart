@@ -114,38 +114,8 @@ export default ({dispatch, getState}) => {
       })
 
     function resBehaviour (res) {
-      switch (res.code) {
-        case -2:
-          // session 失效，重新登录
-          dispatch({
-            type: failure,
-            meta,
-            payload: new Error('请重新登录考拉'),
-            error: true
-          })
-          return Promise.reject(res)
-        case -1:
-          // 请求失败
-          dispatch({
-            type: failure,
-            meta,
-            payload: new Error(res.msg),
-            error: true
-          })
-          return Promise.reject(res)
-        case 0:
-          // 请求成功
-          if (!res.data) {
-            return Promise.reject(res)
-          }
-          return Promise.resolve(res)
-        case 1:
-          // 请求成功，需要重定向
-          // dispatch(push(redirect[res.redirect]))
-          return Promise.resolve(res)
-        default:
-          return Promise.resolve(res)
-      }
+      // 一些全局业务逻辑处理
+      return res
     }
   }
 }
