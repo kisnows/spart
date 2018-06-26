@@ -11,7 +11,7 @@ try {
 
 module.exports = {
   port: env.localPort || 8080,
-  remoteApi: env.remoteApi || '10.165.124.53',
-  cdnHost: 'i.epay.126.net',
-  cdnPath: '/m/qh/'
+  remoteApi: env.remoteApi || '192.xxx.xxx.xxx',
+  cdnHost: 'xxx.xxx.xxx',
+  cdnPath: '/x/xx/'
 }
