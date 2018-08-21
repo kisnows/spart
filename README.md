@@ -1,4 +1,5 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkisnows%2Fspart.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkisnows%2Fspart?ref=badge_shield)
 # Spart
 React 全家桶项目脚手架。
 
@@ -210,3 +211,7 @@ js 文件基于 standard 规范，所有文件必须通过代码风格校验，�
 npm run lint
 ```
 来查看检测结果。
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkisnows%2Fspart.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkisnows%2Fspart?ref=badge_large)
